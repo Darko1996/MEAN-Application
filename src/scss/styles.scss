@@ -1,0 +1,52 @@
+@import "./vars";
+
+// angular material theme
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+// leaflet maps
+@import "~leaflet/dist/leaflet.css";
+
+// slider
+@import '~@glidejs/glide/src/assets/sass/glide.core';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  position: relative;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+h1 {
+  font-size: 23px;
+}
+
+h2 {
+  line-height: 20px !important;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  -webkit-box-shadow: inset 0 0 5px grey;
+          box-shadow: inset 0 0 5px grey; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15); 
+}

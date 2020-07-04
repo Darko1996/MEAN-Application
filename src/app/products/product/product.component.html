@@ -1,0 +1,29 @@
+<section [@slideIn]>
+  <div id="product">
+    <div class="heading">
+      <h1>{{ title }}</h1>
+    </div>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    
+    <ul *ngIf="products.length > 0 && !isLoading" lightbox-group>
+      <li *ngFor="let prod of products | reverse">
+        <div class="prod-img" >
+          <img [src]="prod.imagePath" [alt]="category" lightbox closeButtonText= "Zatvori">
+        </div>
+        <div class="prod-body">
+          <p class="title">{{ prod.title }}</p>
+          <p>{{ prod.description }} </p>
+        </div>
+        <div class="prod-foot">
+          <button *ngIf="userIsAuthenticated" class="del-prod" (click)="onDelete(prod.id)">Izbrisi</button>
+          <span class="price">{{ prod.price }} rsd</span>
+        </div>
+      </li>
+    </ul>
+    <h2 *ngIf="products.length <= 0 && !isLoading">Na stanju trenutno nema nijedan proizvod ovog tipa.</h2>
+
+    <mat-paginator [length]="totalProducts" [pageSize]="productsPerPage" [pageSizeOptions]="pageSizeOptions"
+      (page)="onChangePage($event)" *ngIf="products.length > 0">
+    </mat-paginator>
+  </div>
+</section>

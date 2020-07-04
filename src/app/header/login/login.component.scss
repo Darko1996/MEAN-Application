@@ -1,0 +1,127 @@
+.modal-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px 20px 10px 20px;
+  border-bottom: 1px solid #f2f2f2;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+
+  i {
+    height: 100px;
+    width: 100px;
+    font-size: 6rem;
+    color: rgba(73, 73, 231, 0.95);
+    margin-bottom: 10px !important;
+    border-radius: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 17px;
+  color: rgba(73, 73, 231, 0.95);
+  padding: 12px;
+  cursor: pointer;
+}
+
+form {
+  padding: 20px 20px 0px 20px;
+  text-align: center;
+  height: 230px;
+  background: -o-repeating-linear-gradient(
+    bottom,
+    #fff,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+  background: repeating-linear-gradient(
+    0deg,
+    #fff,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+
+  input {
+    line-height: 1.5;
+    padding: 10px 2px;
+    margin: 5px 0px 20px 0px;
+    width: 80%;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    background-color: transparent;
+    border-bottom: 2px solid #f2f2f2;
+
+    &:nth-child(2) {
+      margin-bottom: 35px;
+    }
+  }
+
+  input[type="password"] {
+    color: #333;
+  }
+
+  input.ng-touched.ng-invalid {
+    border: 1px solid red !important;
+  }
+
+  button {
+    background-color: rgba(73, 73, 231, 0.95);
+    color: #fff;
+    padding: 10px 20px;
+    border: 0px;
+    text-transform: uppercase;
+    font-weight: 400;
+    -webkit-box-shadow: 1px 1px 5px #616161;
+            box-shadow: 1px 1px 5px #616161;
+
+    i {
+      margin-left: 10px;
+    }
+  }
+
+  small {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 10px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    color: red;
+  }
+}
+
+::ng-deep .mat-dialog-container {
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+  padding: 0;
+  height: 420px;
+  -webkit-box-shadow: 0px 0px;
+          box-shadow: 0px 0px;
+
+  &::after {
+    content: "";
+    width: 102%;
+    height: 30px;
+    position: absolute;
+    bottom: 0px;
+    background-color: #fff;
+    left: 0;
+    -webkit-clip-path: polygon(0 0, 0 100%, 100% 0);
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+  }
+}

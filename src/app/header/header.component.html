@@ -1,0 +1,72 @@
+<header id="header" #target>
+  <a routerLink="/" style="height: 100%;">
+    <div class="logo"></div>
+  </a>
+  <nav>
+    <ul class="menu" [ngClass]="{'menu-active' : hoverMob==true }">
+      <li class="menu-item" (click)="routePage('')">Početna</li>
+      <li class="menu-item proizvodi" 
+      (touchstart)="hoverMobSubmenu = true"
+      (mouseover)="hoverPC=true" 
+      (mouseout)="hoverPC=false">Proizvodi
+
+      <i class="fas fa-angle-down"></i>
+
+      <!-- mobile close submenu button (transparent) -->
+      <span 
+      [ngClass]="{'submenu-icon-close' : hoverMobSubmenu ? true : false}" 
+      (touchend)="hoverMobSubmenu = false">  
+      </span>
+        
+        <ul class="submenu"
+        [ngClass]="{'submenu-active' : hoverPC==true }"
+        [ngClass]="{'submenu-active' : hoverMobSubmenu ? true : false}">
+          <li (click)="routePage('product/kuhinje')">Kuhinje</li>
+          <li (click)="routePage('product/tv-komode')">TV Komode</li>
+          <li (click)="routePage('product/komode')">Komode</li>
+          <li (click)="routePage('product/police')">Police</li>
+          <li (click)="routePage('product/garderoberi-i-ormari')">Garderoberi i ormari</li>
+          <li (click)="routePage('product/kancelarijski-stolovi')">Kancelarijski stolovi</li>
+          <li (click)="routePage('product/fiokari-i-nocni-stocici')">Fiokari i nocni stocici</li>
+          <li (click)="routePage('product/predsoblja-i-cipelari')">Predsoblja i cipelari</li>
+          <li (click)="routePage('product/klub-i-stolovi-za-rucavanje')">Klub i stolovi za rucavanje</li>
+          <li (click)="routePage('product/kupatilski-namestaj')">Kupatilski namestaj</li>
+          <li (click)="routePage('product/katalog-boja')">Katalog boja</li>
+          <li (click)="routePage('product/ostalo')">Ostalo</li>
+        </ul>
+      </li>
+      <li class="menu-item" (click)="routePage('aboutus')">O nama</li>
+      <li class="menu-item" (click)="routePage('contact')" style="margin-right: 15px;">Kontakt</li>
+
+      <!-- search button -->
+      <li class="search menu-item">
+        <form (submit)="onSearch(searchForm)" #searchForm="ngForm"
+        (mouseover)="searchStatus = true" (mouseout)="searchStatus = false">
+          <div class="custom-search" [ngClass]="{'search-active' :  searchStatus == true }">
+              <input type="search" name="search" ngModel #search="ngModel" placeholder="Pretraga"
+               id="express-form-typeahead" autocomplete="off" spellcheck="false">
+              <button class="search-btn" type="submit"><span class="icon"></span></button>
+          </div>
+        </form>
+      </li>
+
+      <!-- login button-->
+      <li *ngIf="!userIsAuthenticated" class="menu-item login-btn" (click)="openDialog()">
+        <i class="far fa-user-circle"></i>
+      </li>
+
+      <!-- logout button -->
+      <li *ngIf="userIsAuthenticated" (click)="onLogout()" class="menu-item login-btn">
+        <a type="button"><i class="fas fa-sign-out-alt"></i></a>
+      </li>
+
+      <li *ngIf="userIsAuthenticated" class="menu-item" (click)="routePage('adminPanel')" style="color: #ffe000; font-weight: 400;">Dodavanje proizvoda</li>
+    </ul>
+
+    <div class="hamburger-icon" (click)="toggleMobMenu()" [ngClass]="{'hamburger-icon-active' : hoverMob==true}"><div></div></div>
+  </nav>
+</header>
+
+<div class="arrow-up">
+  <a (click)="scrollToElement(target)"><i class="fas fa-chevron-up"></i></a>
+</div>

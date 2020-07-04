@@ -1,0 +1,36 @@
+<section [@slideIn]>
+    <div id="section-A">
+        <div class="heading">
+            <h3>Kontakt</h3>
+        </div>
+
+        <div class="contact">
+            <div class="contact-a">
+                <div class="map-frame">
+                    <div id="map"></div>
+                </div>
+            </div>
+            <div class="contact-b">
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Adresa: Meše Selimovića bb, <br> 36300, Novi Pazar </li>
+                    <li><i class="fas fa-phone"></i> Broj telefona: 060 0540 340 <span class="footer-phone"></span>
+                    </li>
+                    <li><i class="fas fa-envelope"></i> Email: stefan.lesevic5@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="section-B">
+        <h3>Kontaktirajte nas</h3>
+        <form (submit)="onContact(contactForm)" #contactForm="ngForm">
+            <input name="name" type="text" ngModel class="feedback-input" required placeholder="Ime" />
+            
+            <input name="email" type="email" ngModel #email="ngModel" required email class="feedback-input"placeholder="Email" />
+            <span *ngIf="!email.valid && email.touched">Pogresno ste uneli email.</span>
+
+            <textarea name="text" ngModel class="feedback-input" required placeholder="Poruka"></textarea>
+            <button type="submit" [disabled]="!contactForm.form.valid">POŠALJI</button>
+        </form>
+    </div>
+</section>

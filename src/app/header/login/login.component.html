@@ -1,0 +1,13 @@
+<div class="modal-icon">
+    <i class="fas fa-user-circle"></i>
+</div>
+<i class="fas fa-times close" (click)="loginCLose()"></i>
+
+<form (submit)="onLogin()" [formGroup]="loginForm">
+    <input type="email" formControlName="email" name="email" placeholder="Unesite email">
+    <input type="password" formControlName="password" name="password" placeholder="Unesite sifru" autocomplete="on">
+    <button type="submit" rounded="true" class="mt-1 waves-light">Ulogujte se <i class="fas fa-sign-in-alt"></i></button>
+    <br>
+    <small *ngIf="!loginForm.valid && loginForm.get('email').touched && loginForm.get('password').touched">
+        Email ili sifra su netacni.</small>
+</form>
